@@ -1,0 +1,48 @@
+.main-content {
+    width: 930px;
+    margin: 50px auto;
+  }
+  
+  .toolbar {
+    display: flex;
+  
+    margin-bottom: 20px;
+  }
+  
+  .toolbar-category {
+    box-sizing: border-box;
+    margin-right: 10px;
+    padding: 5px 10px;
+  
+    border: black solid 1px;
+  }
+  
+  .toolbar-category:hover {
+    margin-right: 12px;
+    color: white;
+    background-color: dimgrey;
+  
+    border: none;
+  }
+  
+  .active-category {
+    margin-right: 12px;
+    color: white;
+    background-color: dimgrey;
+  
+    border: none;
+  }
+  
+  .project-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .image-container {
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+  
+  .image {
+    width: 300px;
+}
