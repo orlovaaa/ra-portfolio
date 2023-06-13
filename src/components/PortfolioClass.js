@@ -1,31 +1,32 @@
 import React from 'react'
 import Toolbar from './Tolbar'
 import ProjectList from './ProjectList'
+import Projects from './Projects'
 
 export default class Portfolio extends React.Component {
     constructor(props) {
-        super(props)
-        this.state = { selected: props.profile.filters[0]}
-        this.projectsList = props.profile.projects
-        this.filters = props.profile.filters
+        super(props);
+        this.state={
+            selected: "All"
+        }
+        this.projects = Projects;
     }
+     
 
-    selectFilter(event) {
-        this.setState({ selected: event.target.textContent })
-    }
 
     render() {
-        const projects = this.state.selected === this.filters[0] ? this.projectsList[0] : this.projectsList[0].filter(item => item.category === this.state.selected);
-        
-        return (
-            <div className="main-content">
-                <Toolbar
-                    filters={this.filters}
+        return <>
+                <Toolbar  
+                    filters={["All", "Websites", "Flayers", "Business Cards"]}
                     selected={this.state.selected}
-                    onSelectFilter={(filter) => this.selectFilter(filter)}
+                    onSelectFilter={(filter) => {this.setState({
+                        selected: filter
+                    })}}
                 />
-                <ProjectList projects={projects}/>
-            </div>
-        )
+                <ProjectList projects={this.projects.filter((item)=> {return this.state.selected === "All" ? 
+                item : 
+                item.category === this.state.selected
+                })} />
+                </>
     }
 }
